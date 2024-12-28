@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+from flask_cors import CORS # type: ignore
 
 app = Flask(__name__)
 CORS(app)
@@ -31,7 +31,7 @@ with app.app_context():
     db.create_all()
     
     try:
-        db.session.execute(text('SELECT 1'))
+        db.session.execute(text('SELECT 1')) # type: ignore
     except Exception as e:
         print(f'Error al conectar con la base de datos {e}')
 
